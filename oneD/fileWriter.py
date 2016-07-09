@@ -2,6 +2,7 @@
 File writer to save results in the computation
 '''
 import os
+from numpy import *
 
 
 '''
@@ -37,13 +38,26 @@ def read(filename):
     f.close()
 
 
-filename = "text.txt"
+
+def convert(myarray):
+    out = ""
+    for e in myarray:
+        out += str(e)
+        out += ','
+    return out
+
+"""
+
+filename = "hello.txt"
 delete(filename)
-save(filename, "hello test")
-save(filename, "another line")
+save(filename, "this is a line")
+save(filename, "this is also a  line")
 read(filename)
 
-
-
-
-
+l = [1,2,3,4,5]
+l1 = array(l)
+print l1
+print convert(l1)
+save(filename, convert(l1))
+read(filename)
+"""

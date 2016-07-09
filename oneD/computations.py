@@ -11,11 +11,21 @@ We define here the potential function, input takes (x,t) x is position t is time
 the matrix will be computed in the main program. the potential is complex valued
 '''
 
-def V(x,t):
+def pot1(x,t):
     if t<0.5:
-        return x**2
+        return 0.1 * x**2
     if t>=0.5:
-        return x**2+x
+        return 0.1 * x ** 2 + x
+
+def pot2(x):
+    if abs(x) < L * 0.1:
+        return 0
+    else:
+        return 10
+
+def pot3(x):
+    return abs(x)
+        
 
 
 '''
@@ -25,8 +35,8 @@ representing the input, it will take 2D array V_tx the represents the potential.
 it should should also take input integer k that tells you at what timestep you are doing this step.
 '''
 
-def nonlinear(f_ini,V_tx,k):
-    return f_ini*exp(-1.j*V_tx[k]*dt/hbar)
+def nonlinear(f_ini,V,k):
+    return f_ini*exp(-1.j*V*dt/hbar)
 
 
 '''
