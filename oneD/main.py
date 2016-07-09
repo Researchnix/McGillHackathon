@@ -21,7 +21,7 @@ for i in range(N):
 '''
 #V = map(pot2,x)
 for i in range(len(x)):
-    V.append(pot3(x[i]) + 0.j)
+    V.append(pot2(x[i]) + 0.j)
     #V.append(0 + 0.j)
 V=array(V)
 
