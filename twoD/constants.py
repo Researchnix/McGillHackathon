@@ -4,7 +4,7 @@ from numpy import *
 from pylab import *
 from matplotlib import animation
 
-filename = 'central3.txt'
+filename = 'harmonic2'
 
 
 

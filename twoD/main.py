@@ -79,4 +79,4 @@ def doComputations(filename):
 if __name__ == "__main__":
     #doComputations(filename)
     loadData(filename)
-    plotColor()
+    plotColor(filename)

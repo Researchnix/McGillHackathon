@@ -9,7 +9,7 @@ F = []          # 3 dim
 def loadData(filename):
     print 'Loading the data ...'
     mat = []        # 2 dim
-    with open(filename, 'r') as f:
+    with open(filename + '.txt', 'r') as f:
         for line in f:
             if line != '\n':
                 row = map(float, line.split())
@@ -29,7 +29,7 @@ def plotPot(V):
 
 
 
-def plotColor():
+def plotColor(filename):
 
     fig = plt.figure()
 
@@ -43,7 +43,12 @@ def plotColor():
         im.set_array(F[i])
         return im,
 
+    # Set up formatting for the movie files
+    Writer = animation.writers['mencoder']
+    writer = Writer(fps=30, metadata=dict(artist='Me'), bitrate=1800)
+
     ani = animation.FuncAnimation(fig, updatefig, interval=speed, blit=True)
+    ani.save(filename + '.mp4', writer=writer)
     show()
 
 

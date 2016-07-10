@@ -12,20 +12,20 @@ Args:   filename : string
 '''
 def delete(filename):
     try:
-        os.remove(filename)
+        os.remove(filename + '.txt')
     except OSError:
         pass
 
 
 def insertemptyLine(filename):
-    f = open(filename, 'a')
+    f = open(filename + '.txt', 'a')
     f.write('\n')
     f.close()
     
 
 def saveMat(filename, mat):
     for row in mat:
-        saveRow(filename, row)
+        saveRow(filename + '.txt', row)
         
 
 '''
@@ -33,7 +33,7 @@ Args:   filename : string
         row : array
 '''
 def saveRow(filename, row):
-    f = open(filename, 'a')
+    f = open(filename + '.txt', 'a')
     f.write(convert(row) + '\n')
     f.close()
 
@@ -42,7 +42,7 @@ def saveRow(filename, row):
 Args:   filename : string
 '''
 def read(filename):
-    with open(filename, 'r') as f:
+    with open(filename + '.txt', 'r') as f:
         for line in f:
             print line.split()
     f.close()
