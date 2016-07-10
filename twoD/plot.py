@@ -16,7 +16,7 @@ def loadData(filename):
                 mat.append(row)
             else:
                 F.append(mat)
-                print 'norm stuff... ' + str(sum(array(mat)) / sum(array(F[0])))
+                #print 'norm stuff... ' + str(sum(array(mat)) / sum(array(F[0])))
                 mat = []
         F.append(mat)
 
@@ -35,7 +35,7 @@ def plotColor():
 
     z = F[0]
     im = plt.imshow(z, animated=True)
-    plt.clim(0,1)
+    plt.clim(0,.5)
     plt.colorbar(im)
 
 

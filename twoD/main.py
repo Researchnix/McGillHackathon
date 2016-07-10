@@ -45,8 +45,10 @@ def doComputations(filename):
 
     '''
     print "Computation started ...\n"
-    f_ini = laguerre()
-    Norm = sum(abs(f_ini)**2) * dx * dy
+    f_ini = laguerre(-1./2,-1./2)
+    #Norm = sum(abs(f_ini)**2) * dx * dy
+
+
     V_xy = zeros((len(x), len(y)))
     for i in range(len(x)):
         for j in range(len(x)):
@@ -65,7 +67,7 @@ def doComputations(filename):
         a2=nlStep(a1,V_xy,i)
         a3=fStep(a2)
         a1=a3
-       # print 'norm stuff... ' + str(sum(abs(array(a3))**2) / sum(abs(array(f_ini))**2))
+        #print 'norm stuff... ' + str(sum(abs(array(a3))**2) / sum(abs(array(f_ini))**2))
         saveMat(filename, abs(a1) ** 2)
         insertemptyLine(filename)
             
@@ -75,6 +77,6 @@ def doComputations(filename):
     
 
 if __name__ == "__main__":
-    doComputations(filename)
+    #doComputations(filename)
     loadData(filename)
     plotColor()
