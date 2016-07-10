@@ -45,14 +45,14 @@ def doComputations(filename):
 
     '''
     print "Computation started ...\n"
-    f_ini = gauss(4,3,1,0)
+    f_ini = laguerre()
     Norm = sum(abs(f_ini)**2) * dx * dy
     V_xy = zeros((len(x), len(y)))
     for i in range(len(x)):
         for j in range(len(x)):
-            V_xy[i,j] = quarticPot(x[i], y[j])
+            V_xy[i,j] = centralPot(x[i], y[j])
     print "Potential initialized."
-            
+    
         
 
 
@@ -75,6 +75,6 @@ def doComputations(filename):
     
 
 if __name__ == "__main__":
-    #doComputations(filename)
+    doComputations(filename)
     loadData(filename)
     plotColor()
