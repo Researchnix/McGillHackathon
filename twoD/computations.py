@@ -12,6 +12,13 @@ def harmonicPot(x,y):
 def quarticPot(x,y):
     return 1./24 * (x**4+y**4 + 2* x **2 * y ** 2)
 
+def centralPot(x,y):
+    if abs(x)<=0.6 or abs(y)<0.6:
+        return -5./sqrt(0.6**2*2)
+    else:
+        return -5/sqrt(x**2+y**2)
+    
+
 
 def nlStep(f_ini,V_xy,k):
     return f_ini * exp ( -1.j * V_xy*dt/hbar)
