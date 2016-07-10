@@ -49,7 +49,7 @@ def doComputations(filename):
         #/ sum(abs(array(f_ini))**2))
         saveMat(filename, abs(a1) ** 2)
         insertemptyLine(filename)
-    print 'The data has been written to ' + filename + '.txt'
+   p rint 'The data has been written to ' + filename + '.txt'
     
 
 if __name__ == "__main__":
@@ -60,8 +60,8 @@ if __name__ == "__main__":
     function
     '''
     #doComputations(filename)
-    #loadData(filename)
+    loadData(filename)
     #dummy = raw_input("Ready when you are ...")
-    #plotColor(filename)
-    #V_xy = easyGauss() 
+    plotColor(filename)
+   # V_xy = easyGauss() 
     #plotPot(V_xy)
