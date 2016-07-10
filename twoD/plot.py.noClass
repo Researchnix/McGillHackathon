@@ -1,0 +1,54 @@
+from constants import *
+from computations import *
+from fileWriter import *
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from mpl_toolkits.mplot3d import Axes3D
+
+'''
+def data(i, z, line):
+    z = F[i]
+    ax.clear()
+    line = ax.plot_surface(u,v, z)
+    return line,
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ 
+z = F[0]
+line = ax.plot_surface(u, v, z)
+
+ani = animation.FuncAnimation(fig, data, fargs = (z, line), interval = 30, blit =
+        False)
+show()
+'''
+def plot(filename):
+    F = []          # 3 dim
+    mat = []        # 2 dim
+    with open(filename, 'r') as f:
+        for line in f:
+            if line != '\n':
+                row = map(float, line.split())
+                mat.append(row)
+            else:
+                F.append(mat)
+                mat = []
+        F.append(mat)
+
+
+
+
+
+    fig = plt.figure()
+
+    z = F[0]
+    im = plt.imshow(z, animated=True)
+    plt.colorbar(im)
+
+
+    def updatefig(i):
+        im.set_array(F[i])
+        return im,
+
+    ani = animation.FuncAnimation(fig, updatefig, interval=50, blit=True)
+    show()

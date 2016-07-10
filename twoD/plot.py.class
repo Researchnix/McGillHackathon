@@ -1,0 +1,61 @@
+from computations import *
+from fileWriter import *
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from mpl_toolkits.mplot3d import Axes3D
+
+class Plotter:
+    """ A class to plot data that has been written to a file """
+    F = []          # 3 dim
+    mat = []        # 2 dim
+
+    '''
+    Parsing the data from the file
+    '''
+    def loadFile(self, filename):
+        with open(filename, 'r') as f:
+            for line in f:
+                if line != '\n':
+                    row = map(float, line.split())
+                    self.mat.append(row)
+                else:
+                    self.F.append(mat)
+                    self.mat = []
+            self.F.append(self.mat)
+
+
+
+    '''
+    Plotting the data parsed into F
+    '''
+    def plotData(self):
+        fig = plt.figure()
+        z = self.F[0]
+        im = plt.imshow(z, animated=True)
+        plt.colorbar(im)
+        ani = animation.FuncAnimation(fig, self.updatefig, interval=50, blit=True)
+        show()
+
+    def updatefig(self, i):
+        im.set_array(self.F[i])
+        return im,
+
+'''
+def data(i, z, line):
+    z = F[i]
+    ax.clear()
+    line = ax.plot_surface(u,v, z)
+    return line,
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ 
+z = F[0]
+line = ax.plot_surface(u, v, z)
+
+ani = animation.FuncAnimation(fig, data, fargs = (z, line), interval = 30, blit =
+        False)
+show()
+'''
+
+

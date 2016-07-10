@@ -4,11 +4,16 @@ from numpy import *
 from pylab import *
 from matplotlib import animation
 
+filename = 'quartic3.txt'
+
+
+
 hbar = 1.
 m = 1.
+speed = 200
 
-dx = 0.1
-dy = 0.1
+dx = 0.02
+dy = 0.02
 dt = 0.05
 
 
@@ -33,7 +38,24 @@ freq_y_ns=fftfreq(len(y),dy)
 ##
 u_f,v_f = meshgrid(freq_x_ns, freq_y_ns)
 
+'''
+Definitin of different states
+'''
 def easyGauss():
     return exp( -u**2 - v**2 );
 
+def harmonic():
+    return exp( (- u **2 - v ** 2) / ( 2* hbar))
 
+def gauss(u0, v0, ku, kv):
+    return exp( (- (u - u0) **2 + 1j * u * ku - (v - v0) ** 2 ) / ( 2* hbar))
+
+    '''
+def gauss(u0, v0, ku, kv):
+    a = 1
+    """
+    a gaussian wave packet of width a, centered at x0, with momentum k0
+    """ 
+    return  exp(-0.5 * ((u - u0)  * 1. / a) ** 2  +
+        1j * u * ku) * exp(-0.5 * ((v - v0)  * 1. / a) ** 2  + 1j * v * kv)
+    '''

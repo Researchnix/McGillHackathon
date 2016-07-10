@@ -1,43 +1,52 @@
 from pylab import *
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-from mpl_toolkits.mplot3d import Axes3D
 
 from constants import *
 from computations import *
+from fileWriter import *
+from plot import *
 
 
 
-f_ini = easyGauss()
+def doComputations(filename):
 
-V_txy = zeros((N,len(x), len(y)))
-F=[]
-a1=f_ini
-for i in range(N):
-    a2=nlStep(a1,V_txy,i)
-    a3=fStep(a2)
-    a1=a3
-    F.append(abs(a1)**2)
+    '''
+    Setup all the stuff
+
+    possible initial functions and potential combinations
+        
+        f_ini = gauss(4,3,1,0)
+        V: harmonicPot
+        -> harmonic2.txt
+
+
+    '''
+    print "Computation started ...\n"
+    f_ini = gauss(4,3,1,0)
+    V_xy = zeros((len(x), len(y)))
+    for i in range(len(x)):
+        for j in range(len(x)):
+            V_xy[i,j] = quarticPot(x[i], y[j])
+    print "Potential initialized."
+            
+        
+
+
+    '''
+    Do the time stepping
+    '''
+    delete(filename)
+    a1=f_ini
+    for i in range(N):
+        a2=nlStep(a1,V_xy,i)
+        a3=fStep(a2)
+        a1=a3
+        saveMat(filename, abs(a1) ** 2)
+        insertemptyLine(filename)
+
+    print 'The data has been written to ' + filename
     
-    
-    
 
-"""
-Plot the result
-"""
-def data(i, z, line):
-    z = F[i]
-    ax.clear()
-    line = ax.plot_surface(u,v, z)
-    return line,
-
-n = 2 * pi
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
- 
-z = F[0]
-line = ax.plot_surface(u, v, z)
-
-ani = animation.FuncAnimation(fig, data, fargs = (z, line), interval = 30, blit =
-        False)
-show()
+if __name__ == "__main__":
+    #doComputations(filename)
+    loadData(filename)
+    plotColor()
