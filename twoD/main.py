@@ -24,7 +24,7 @@ def doComputations(filename):
     V_xy = zeros((len(x), len(y)))
     for i in range(len(x)):
         for j in range(len(x)):
-            V_xy[i,j] = centralPot(x[i]-1.5, y[j])+centralPot(x[i]+1.5, y[j])
+            V_xy[i,j] = centralPot(x[i]+1.5, y[j])
     print "Potential initialized ..."
     
         
@@ -49,7 +49,7 @@ def doComputations(filename):
         #/ sum(abs(array(f_ini))**2))
         saveMat(filename, abs(a1) ** 2)
         insertemptyLine(filename)
-   p rint 'The data has been written to ' + filename + '.txt'
+    print 'The data has been written to ' + filename + '.txt'
     
 
 if __name__ == "__main__":
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     '''
     #doComputations(filename)
     loadData(filename)
-    #dummy = raw_input("Ready when you are ...")
+    dummy = raw_input("Ready when you are ...")
     plotColor(filename)
    # V_xy = easyGauss() 
     #plotPot(V_xy)
