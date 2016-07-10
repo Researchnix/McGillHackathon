@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from mpl_toolkits.mplot3d import Axes3D
 
-F = []          # 3 dim
+# Global variable to store all the data
+F = []          # 3 dimensional
+
+
+
+# Loading the data into the variable F
 def loadData(filename):
     print 'Loading the data ...'
     mat = []        # 2 dim
@@ -20,8 +25,10 @@ def loadData(filename):
                 mat = []
         F.append(mat)
 
-def plotPot(V):
 
+
+# Plot just the potential V
+def plotPot(V):
     fig = plt.figure()
     im = plt.imshow(V, animated=True)
     plt.colorbar(im)
@@ -29,13 +36,16 @@ def plotPot(V):
 
 
 
+
+# Make a color plot of the data in F.
+# NOTE: the data has to be parsed to F beforehand.
+# The argument filename is the name of the outputted video, this part is still
+# under construction
 def plotColor(filename):
-
-    fig = plt.figure()
-
+    fig = plt.figure(figsize=(10,20))
     z = F[0]
     im = plt.imshow(z, animated=True)
-    plt.clim(0,.5)
+    plt.clim(0,0.5)
     plt.colorbar(im)
 
 
@@ -43,15 +53,22 @@ def plotColor(filename):
         im.set_array(F[i])
         return im,
 
+    # UNDER CONSTRUCTION
     # Set up formatting for the movie files
-    Writer = animation.writers['mencoder']
-    writer = Writer(fps=30, metadata=dict(artist='Me'), bitrate=1800)
+    #Writer = animation.writers['mencoder']
+    #writer = Writer(fps=30, metadata=dict(artist='Me'), bitrate=1800)
 
     ani = animation.FuncAnimation(fig, updatefig, interval=speed, blit=True)
-    ani.save(filename + '.mp4', writer=writer)
+    # UNDER CONSTRUCTION
+    #ani.save(filename + '.mp4', writer=writer)
     show()
 
 
+
+
+# Make a 3D plot of the data in F. This method of plotting it is slower than the
+# color plot method!
+# NOTE: the data has to be parsed to F beforehand.
 def plotThreeD():
     def data(i, z, line):
         z = F[i]

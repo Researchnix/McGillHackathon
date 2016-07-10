@@ -4,36 +4,37 @@ from numpy import *
 from pylab import *
 from matplotlib import animation
 
-filename = 'doublecentral1'
-
-
-
-hbar = 1.
-m = 1.
-speed = 50
-
-dx = 0.04
-dy = 0.04
-dt = 0.1
-
+'''
+    Set all relevant constants here 
+'''
+# The filename to which the data will be saved
+filename = 'singleScatter1'
+# The speed of the animation
+speed = 200
+# total number of time steps to be performed, i.e total time of evolution 
 N=500
+# time step size
+dt = 0.1
 time = arange(0,N*dt,dt)
 
+################## PHYSICAL CONSTANTS ################## 
+hbar = 1.
+# particle mass
+m = 1.
+# mesh size
+dx = 0.1
+dy = 0.1
+# total size of the grid
 L_x = 10.
 L_y = 10.
-
+# The grid x,y and the resulting meshgrid u,v
 x = arange( -L_x, L_x, dx)
 y = arange( -L_y, L_y, dy)
-
 u, v = meshgrid( x,y)
-'''
-u[i] is the x axis
-v[i] is the y axis
 
-so the pair (x[i],y[j]) is the pair  u[j,i],v[j,i]
-'''
+# The grid in fourier space
 freq_x_ns = fftfreq(len(x),dx)
-freq_y_ns=fftfreq(len(y),dy)
-##
+freq_y_ns = fftfreq(len(y),dy)
+# The meshgrid in fourier space
 u_f,v_f = meshgrid(freq_x_ns, freq_y_ns)
 
