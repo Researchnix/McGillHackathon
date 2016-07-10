@@ -43,14 +43,19 @@ def plotPot(V):
 # under construction
 def plotColor(filename):
     fig = plt.figure(figsize=(10,20))
+    plt.xlabel('$ x $')
+    plt.ylabel('$ y $')
     z = F[0]
     im = plt.imshow(z, animated=True)
     plt.clim(0,0.5)
-    plt.colorbar(im)
+    plt.colorbar(im, label='wave function probability $ \parallel \psi ( x, y ) \parallel  ^ 2 $ ')
 
 
     def updatefig(i):
-        im.set_array(F[i])
+        try:
+            im.set_array(F[i])
+        except TypeError:
+            quit()
         return im,
 
     # UNDER CONSTRUCTION

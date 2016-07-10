@@ -8,11 +8,11 @@ from matplotlib import animation
     Set all relevant constants here 
 '''
 # The filename to which the data will be saved
-filename = 'singleScatter1'
+filename = 'lattice1'
 # The speed of the animation
-speed = 200
+speed = 150
 # total number of time steps to be performed, i.e total time of evolution 
-N=500
+N=100
 # time step size
 dt = 0.1
 time = arange(0,N*dt,dt)

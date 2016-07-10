@@ -15,7 +15,8 @@ def doComputations(filename):
     '''
     print "Computation started ..."
     # The initial function for the time stepping
-    f_ini = laguerre(0.,-1.5)
+    #f_ini = laguerre(0.,-1.5)
+    f_ini = gauss(0,1,1,0)
     # Only compute the norm to check if the time stepping is not losing any
     # probability
     # Norm = sum(abs(f_ini)**2) * dx * dy
@@ -24,7 +25,7 @@ def doComputations(filename):
     V_xy = zeros((len(x), len(y)))
     for i in range(len(x)):
         for j in range(len(x)):
-            V_xy[i,j] = centralPot(x[i]+1.5, y[j])
+            V_xy[i,j] = centralPot(x[i], y[j])
     print "Potential initialized ..."
     
         
@@ -59,9 +60,12 @@ if __name__ == "__main__":
     plotPot plots a given potential, note to define it locally in the man
     function
     '''
-    #doComputations(filename)
+    doComputations(filename)
     loadData(filename)
     dummy = raw_input("Ready when you are ...")
+    V_xy = easyGauss() 
+    for i in range(len(x)):
+        for j in range(len(x)):
+            V_xy[i,j] = centralPot(x[i], y[j])
+    plotPot(V_xy)
     plotColor(filename)
-   # V_xy = easyGauss() 
-    #plotPot(V_xy)
