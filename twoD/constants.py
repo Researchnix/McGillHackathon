@@ -4,18 +4,17 @@ from numpy import *
 from pylab import *
 from matplotlib import animation
 
-filename = 'quartic5.txt'
+filename = 'central1.txt'
 
 
 
 hbar = 1.
 m = 1.
-speed = 200
+speed = 20
 
 dx = 0.1
 dy = 0.1
-dt = 0.05
-
+dt = 0.1
 
 N=500
 time = arange(0,N*dt,dt)
@@ -50,6 +49,8 @@ def harmonic():
 def gauss(u0, v0, ku, kv):
     return exp( (- (u - u0) **2 + 1j * u * ku - (v - v0) ** 2 ) / ( 2* hbar))
 
+def laguerre():
+    return exp(-sqrt(u**2+v**2))
     '''
 def gauss(u0, v0, ku, kv):
     a = 1
