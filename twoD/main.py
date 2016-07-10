@@ -65,7 +65,7 @@ def doComputations(filename):
         a2=nlStep(a1,V_xy,i)
         a3=fStep(a2)
         a1=a3
-        print 'norm stuff... ' + str(sum(abs(array(a3))**2) / sum(abs(array(f_ini))**2))
+       # print 'norm stuff... ' + str(sum(abs(array(a3))**2) / sum(abs(array(f_ini))**2))
         saveMat(filename, abs(a1) ** 2)
         insertemptyLine(filename)
             
