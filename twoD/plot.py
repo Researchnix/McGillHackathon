@@ -7,6 +7,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 F = []          # 3 dim
 def loadData(filename):
+    print 'Loading the data ...'
     mat = []        # 2 dim
     with open(filename, 'r') as f:
         for line in f:
@@ -15,6 +16,7 @@ def loadData(filename):
                 mat.append(row)
             else:
                 F.append(mat)
+                print 'norm stuff... ' + str(sum(array(mat)) / sum(array(F[0])))
                 mat = []
         F.append(mat)
 

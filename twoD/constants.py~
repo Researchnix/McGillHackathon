@@ -4,7 +4,7 @@ from numpy import *
 from pylab import *
 from matplotlib import animation
 
-filename = 'quartic5.txt'
+filename = 'quartic4.txt'
 
 
 
