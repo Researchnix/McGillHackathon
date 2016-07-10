@@ -4,7 +4,7 @@ from numpy import *
 from pylab import *
 from matplotlib import animation
 
-filename = 'quartic3.txt'
+filename = 'quartic4.txt'
 
 
 
@@ -12,8 +12,8 @@ hbar = 1.
 m = 1.
 speed = 200
 
-dx = 0.02
-dy = 0.02
+dx = 0.1
+dy = 0.1
 dt = 0.05
 
 

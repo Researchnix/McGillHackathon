@@ -33,6 +33,7 @@ def plotColor():
 
     z = F[0]
     im = plt.imshow(z, animated=True)
+    plt.clim(0,1)
     plt.colorbar(im)
 
 

@@ -19,6 +19,30 @@ def doComputations(filename):
         -> harmonic2.txt
 
 
+        f_ini = 2* gauss(4,0,-4,0)
+        V_xy = gauss(0,0,0,0) ** 2
+        -> singleScatter1.txt
+        hbar = .1
+        m = 1.
+        speed = 200
+
+        dx = 0.1
+        dy = 0.1
+        dt = 0.05
+
+
+        N=500
+        time = arange(0,N*dt,dt)
+
+        L_x = 20.
+        L_y = 10.
+
+        f_ini = gauss(4,3,1,0)
+        quarticPot
+        -> quartic4.txt
+        1, 0.1, 10
+
+
     '''
     print "Computation started ...\n"
     f_ini = gauss(4,3,1,0)
@@ -47,6 +71,6 @@ def doComputations(filename):
     
 
 if __name__ == "__main__":
-    #doComputations(filename)
+    doComputations(filename)
     loadData(filename)
     plotColor()

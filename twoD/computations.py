@@ -10,7 +10,7 @@ def harmonicPot(x,y):
     return 1./2 * (x**2+y**2)
 
 def quarticPot(x,y):
-    return 1./24 * (x**4+y**4)
+    return 1./24 * (x**4+y**4 + 2* x **2 * y ** 2)
 
 
 def nlStep(f_ini,V_xy,k):
