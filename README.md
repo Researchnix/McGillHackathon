@@ -7,7 +7,7 @@
 
 Version:    1.0.0
 Date:       July 10, 2016
-Autors:     Lennart Doppenschmitt and Yuan Yao
+Autors:     Lennart Doöppenschmitt and Yuan Yao
 
 
 In classical mechanics everything about the particle is known once we solve to the trajectory of the particle using Newton's equations. in the quantum world (which is the correct model whereas newton's is just an approximation) this picture is false. we solve for a wave equation, the amplitude of the wave at certain point represents the probability of finding the particle at said point. This is a significant conceptional difference to a point-like particle in classical mechanics, since we are not familiar with the notion of a particle being probably here, but maybe over there. Hence the equation that governs the behaviour of the wave equation is quite different and does not bode well with our intuition. Here we try to use plots to illustrate some of these counterintuitive properties of the schrodinger equation.
